@@ -2,12 +2,13 @@ package main
 
 import "fmt"
 
-func swap(x, y *int) {
-	fmt.Println(&x, " : ", &y)
-	fmt.Println(*x, " : ", *y)
-	temp := *x
-	*x = *y
-	*y = temp
+func swap(e, f *int) {
+	fmt.Println("In Swap : ", &e, " : ", &f)
+	fmt.Println("In Swap : ", e, " : ", f)
+	fmt.Println("In Swap : ", *e, " : ", *f)
+	temp := *e
+	*e = *f
+	*f = temp
 }
 
 func swapNormal(i, j int) (int, int) {
