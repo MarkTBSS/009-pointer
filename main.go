@@ -3,18 +3,21 @@ package main
 import "fmt"
 
 func swap(x, y *int) {
+	fmt.Println(&x, " : ", &y)
+	fmt.Println(*x, " : ", *y)
 	temp := *x
 	*x = *y
 	*y = temp
 }
 
-func main() {
-	z := new(int)
-	fmt.Println(&z) // 0xZ01
-	fmt.Println(z)  // 0xZ02
-	fmt.Println(*z) // 0
-	fmt.Println("=====")
+func swapNormal(i, j int) (int, int) {
+	temp := i
+	i = j
+	j = temp
+	return i, j
+}
 
+func main() {
 	a := new(int)
 	*a = 5
 	fmt.Println(&a) // 0xA01
@@ -46,6 +49,14 @@ func main() {
 	x := 5
 	y := 10
 	fmt.Println(x, y) // 5, 10
+	fmt.Println(&x, " : ", &y)
 	swap(&x, &y)
 	fmt.Println(x, y) // 10, 5
+
+	i := 50
+	j := 100
+	fmt.Println(i, j) // 50, 100
+	var m, n int
+	m, n = swapNormal(i, j)
+	fmt.Println(m, n) // 100, 50
 }

@@ -1,3 +1,3 @@
-module github.com/MarkTBSS/go-pointer
+module github.com/MarkTBSS/009-pointer
 
 go 1.21.5
